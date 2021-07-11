@@ -21,4 +21,9 @@ describe("tz", () => {
       "2021-12-06T02:05:00.000Z"
     );
   });
+  it("lower time fidelity", () => {
+    expect(
+      getDateInTz(new Date("2021-07-01T01:59:59.999Z"), TIMEZONE).toISOString()
+    ).to.equal("2021-07-01T03:00:00.998Z");
+  });
 });

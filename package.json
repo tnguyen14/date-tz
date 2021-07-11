@@ -30,5 +30,6 @@
   },
   "lint-staged": {
     "*.{js,css,md}": "prettier --write"
-  }
+  },
+  "keywords": ["date", "tz", "timezone"]
 }
