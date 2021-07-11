@@ -1,0 +1,37 @@
+name: Test
+
+on: [push, pull_request]
+
+jobs:
+  utc:
+    name: UTC
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install deps
+        run: npm i
+
+      - name: Test
+        run: npm t
+
+  ny:
+    name: NY
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Change timezone
+        uses: zcong1993/setup-timezone@master
+        with:
+          timezone: America/New_York
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install deps
+        run: npm i
+
+      - name: Test
+        run: npm t
