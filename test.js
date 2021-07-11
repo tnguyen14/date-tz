@@ -10,8 +10,14 @@ describe("tz", () => {
     expect(getDateInTz(summerNight, TIMEZONE).toISOString()).to.equal(
       "2021-07-02T01:05:00.000Z"
     );
+    expect(getDateInTz(new Date(summerNight), TIMEZONE).toISOString()).to.equal(
+      "2021-07-02T01:05:00.000Z"
+    );
     const winterNight = "2021-12-05 20:05";
     expect(getDateInTz(winterNight, TIMEZONE).toISOString()).to.equal(
+      "2021-12-06T02:05:00.000Z"
+    );
+    expect(getDateInTz(new Date(winterNight), TIMEZONE).toISOString()).to.equal(
       "2021-12-06T02:05:00.000Z"
     );
   });
