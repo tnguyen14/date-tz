@@ -21,9 +21,20 @@ describe("tz", () => {
       "2021-12-06T02:05:00.000Z"
     );
   });
-  it("lower time fidelity", () => {
+  it("date-fns methods", () => {
     expect(
       getDateInTz(endOfMonth(new Date(summerNight)), TIMEZONE).toISOString()
     ).to.equal("2021-08-01T04:59:59.999Z");
+  });
+  it("don't change date", () => {
+    expect(
+      getDateInTz("2021-12-06T02:05:00.000Z", "America/New_York").toISOString()
+    ).to.equal("2021-12-06T02:05:00.000Z");
+    expect(
+      getDateInTz(
+        new Date("2021-12-06T02:05:00.000Z"),
+        "America/New_York"
+      ).toISOString()
+    ).to.equal("2021-12-06T02:05:00.000Z");
   });
 });
